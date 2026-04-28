@@ -1,0 +1,9 @@
+meta:
+  environment: node
+  build-on: commit
+
+build:
+  - npm install
+
+run:
+  - npm start
