@@ -45,7 +45,6 @@ app.post('/api/igdb', async (req, res) => {
         const data = await response.json();
         res.json(data);
     } catch (err) {
-        console.error('Ошибка /api/igdb:', err);
         res.status(500).json({ error: err.message });
     }
 });
@@ -65,14 +64,11 @@ app.post('/api/igdb/multiple', async (req, res) => {
         const data = await response.json();
         res.json(data);
     } catch (err) {
-        console.error('Ошибка /api/igdb/multiple:', err);
         res.status(500).json({ error: err.message });
     }
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`🔥 IGDB прокси работает на порту ${PORT}`);
-});
-    console.log(`🔥 IGDB прокси работает на порту ${PORT}`);
+    console.log(`IGDB proxy running on port ${PORT}`);
 });
