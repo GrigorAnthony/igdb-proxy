@@ -13,7 +13,6 @@ let tokenExpiry = 0;
 
 async function getToken() {
     if (token && Date.now() < tokenExpiry) return token;
-    
     const res = await fetch('https://id.twitch.tv/oauth2/token', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -23,7 +22,6 @@ async function getToken() {
             grant_type: 'client_credentials'
         })
     });
-    
     const data = await res.json();
     token = data.access_token;
     tokenExpiry = Date.now() + data.expires_in * 1000;
